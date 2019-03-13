@@ -1,0 +1,36 @@
+  {% extends "layout.html" %}
+
+  {% block body %}
+  <th>
+    Varastoon kuuluvat seuraavat tuotteet:
+  </th>
+
+  <ul>
+    <!-- Yritetään käydä lista-nimistä tietorakennetta läpi.
+	 Jokaiselle tietorakenteen alkiolle luodaan li-elementti, 
+	 jonka sisälle asetetaan alkion arvo. -->
+    {% for arvo in kerayspaikat %}
+    <li>{{ arvo }}</li>
+    {% endfor %}
+  </ul>
+
+  <table>
+    <tr>
+        <th>
+    Näiden tuotteiden sijainnit ovat:
+  </th>
+    </tr>
+    <!-- Yritetään käydä tietorakenne nimeltä esineet läpi. 
+	 Jokaiselle esineelle luodaan oma rivi taulukkoon. 
+	 Jokaista taulukon solua luodessa oletetaan, että 
+	 esine on olio, ja että alkiolla on muuttuja name. 
+	 Muuttujan arvo asetetaan solun arvoksi. -->
+    {% for tuote in tuotteet %}
+    <tr>
+      <td>{{ tuote.name }}</td>
+    </tr>
+    {% endfor %}
+
+  </table>
+
+  {% endblock %}
